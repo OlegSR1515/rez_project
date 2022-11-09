@@ -1,0 +1,19 @@
+/*Метод 'output_str' выводит на консоль массив строк в формате,
+         заданном в условии задачи */
+void output_str( string[] str )
+{
+    if (str.Length == 0)
+    {
+        Console.Write("[]");
+    }  
+    else 
+    {
+        Console.Write("[\"");
+        for (int i = 0; i < str.Length - 1; i++)
+        {
+            Console.Write($"{str[i]}\", \"");
+        }
+        Console.Write($"{str[str.Length - 1]}\"]");
+    }
+}
+//*******

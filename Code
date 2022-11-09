@@ -1,0 +1,46 @@
+string[] str_1 = { "hello", "2", "world", ":-)" };
+string[] str_2 = { "1234", "1567", "-2", "computer science" };
+string[] str_3 = { "Russia", "Denmark", "Kazan" };
+string[] given_str = {};
+Console.Write("Введите номер исходного массива: ");
+var s = Console.ReadLine();
+if (s == "1") given_str = str_1;
+else if (s == "2") given_str = str_2;
+else given_str = str_3; 
+//*******
+/*Метод 'output_str' выводит на консоль массив строк в формате,
+         заданном в условии задачи */
+void output_str( string[] str )
+{
+    if (str.Length == 0)
+    {
+        Console.Write("[]");
+    }  
+    else 
+    {
+        Console.Write("[\"");
+        for (int i = 0; i < str.Length - 1; i++)
+        {
+            Console.Write($"{str[i]}\", \"");
+        }
+        Console.Write($"{str[str.Length - 1]}\"]");
+    }
+}
+//*******
+int n = 0;
+foreach (string m in given_str)
+    if (m.Length < 4) n++;
+string[]  rezult_str = new string[n];
+int l = 0;
+for (int i = 0; i < given_str.Length; i++)
+{
+    if (given_str[i].Length < 4)
+    {
+        rezult_str[l] = given_str[i];
+        l++;
+    }
+}
+output_str(given_str);
+Console.Write("->");
+output_str(rezult_str);
+Console.WriteLine();
